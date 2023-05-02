@@ -15,6 +15,7 @@ public class HomeController : Controller
     }
     public async Task<IActionResult> Index()
     {
+        List<Category> categories = await _dbContext.Categories.Include(c=>c.Products).ToListAsync();
         List<Slider> sliders = await _dbContext.Sliders.ToListAsync();
         List<Product> products = await _dbContext.Products.Include(c=>c.Category).ToListAsync();
 
