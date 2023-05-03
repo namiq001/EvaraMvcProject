@@ -26,8 +26,60 @@ public class CategoryController : Controller
         Category? category = await _evaraDbContext.Categories.FindAsync(id);
         if (category == null)
         {
-            return NotFound();
+            return NotFound();  
         }
         return View(category);
+    }
+    public IActionResult Create()
+    { 
+        return View();
+    }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create(Category category)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View();
+        }
+        if (_evaraDbContext.Categories.Any(c => c.Name.Trim().ToLower() == category.Name.Trim().ToLower()))
+        {
+            ModelState.AddModelError("Name", "Bu adda category var");
+            return View();
+        }
+        await _evaraDbContext.Categories.AddAsync(category);
+        await _evaraDbContext.SaveChangesAsync();
+        return View();
+    }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Delete(int id)
+    {
+        Category? category = await _evaraDbContext.Categories.FindAsync(id);
+        if (category == null)
+        {
+            return NotFound();
+        }
+        _evaraDbContext.Categories.Remove(category);
+        await _evaraDbContext.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
+    [HttpPost]
+    public async Task<IActionResult> UpdateCategory(int categoryId,string newName)
+    {
+        Category? category = _evaraDbContext.Categories.Find(categoryId);
+
+        if (!ModelState.IsValid)
+        {
+            return View();
+        }
+
+        category.Name = newName;
+
+
+        await _evaraDbContext.Categories.AddAsync(category);
+        await _evaraDbContext.SaveChangesAsync();
+        return View();
+
     }
 }

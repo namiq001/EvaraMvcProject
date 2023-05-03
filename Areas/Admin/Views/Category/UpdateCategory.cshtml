@@ -1,0 +1,13 @@
+﻿@model Category
+
+<h1>Category update</h1>
+
+
+<form class="col-6" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" id="exampleInputPassword1">
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
