@@ -1,0 +1,72 @@
+﻿@model List<Slider>
+@{
+    int count = 0;
+}
+
+<!-- Main Content -->
+<div id="content">
+
+
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Category</h1>
+        <p class="mb-4">
+            DataTables is a third party plugin that is used to generate the demo table below.
+            For more information about DataTables, please visit the <a target="_blank"
+                                                                       href="https://datatables.net">official DataTables documentation</a>.
+        </p>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                    <div>
+                        <a class="btn btn-success px-5" asp-action="Create">Create</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+            <table class="table table-bordered">
+
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Title</th>
+                        <th>Descriptio</th>
+                        <th>ImageName</th>
+                        <th>Setting</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Slider item in Model)
+                    {
+                        <tr>
+                            <td>@(++count)</td>
+                            <td>@item.Title</td>
+                            <td>@item.Description</td>
+                            <td>@item.ImageName</td>
+                            <td>
+                                <a asp-action="Detalies" asp-route-Id="@item.Id"><button class="btn btn-info">Detail</button></a>
+                                            <form asp-action="Update" method="post" asp-route-Id="@item.Id">
+                                                <button type="submit" class="btn btn-primary">Update</button>
+                                            </form>
+                                <form method="post" asp-action="Delete" asp-route-Id="@item.Id">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->

@@ -44,8 +44,8 @@
                                     <td>@item.Name</td>
                                     <td>
                                         <a asp-controller="Category" asp-action="Detalies" asp-route-Id="@item.Id"><button class="btn btn-info">Detail</button></a>
-                                        <form asp-action="UpdateCategory" method="post">
-                                            <button type="submit" class="btn btn-primary">Update</button>
+                                        <form asp-action="UpdateCategory" method="post" asp-route-Id="@item.Id">
+                                            <button type="submit" class="btn btn-primary" >Update</button>
                                         </form>
                                         <form method="post" asp-action="Delete" asp-route-Id="@item.Id">
                                             <button type="submit" class="btn btn-danger">Delete</button>

@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\admin\\css\\sb-admin-2.min.css"
     },
     {
+      "Id": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\admin\\img\\Hasbulla.jpeg",
+      "PackagePath": "staticwebassets\\admin\\img\\Hasbulla.jpeg"
+    },
+    {
       "Id": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\admin\\img\\undraw_posting_photo.svg",
       "PackagePath": "staticwebassets\\admin\\img\\undraw_posting_photo.svg"
     },

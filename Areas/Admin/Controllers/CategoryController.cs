@@ -49,7 +49,7 @@ public class CategoryController : Controller
         }
         await _evaraDbContext.Categories.AddAsync(category);
         await _evaraDbContext.SaveChangesAsync();
-        return View();
+        return RedirectToAction(nameof(Index));
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
@@ -64,22 +64,34 @@ public class CategoryController : Controller
         await _evaraDbContext.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
-    [HttpPost]
-    public async Task<IActionResult> UpdateCategory(int categoryId,string newName)
+
+    public IActionResult UpdateCategory()
     {
-        Category? category = _evaraDbContext.Categories.Find(categoryId);
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> UpdateCategory(Category newcategory)
+    {
+        Category? category = _evaraDbContext.Categories.Find(newcategory.Id);
 
         if (!ModelState.IsValid)
         {
             return View();
         }
 
-        category.Name = newName;
+        if (_evaraDbContext.Categories.Any(c => c.Name.Trim().ToLower() == newcategory.Name.Trim().ToLower()))
+        {
+            ModelState.AddModelError("Name", "Bu adda category var");
+            return View();
+        }
+
+        category.Name = newcategory.Name;
 
 
-        await _evaraDbContext.Categories.AddAsync(category);
+        _evaraDbContext.Categories.Update(category);
         await _evaraDbContext.SaveChangesAsync();
-        return View();
+        return RedirectToAction(nameof(Index));
 
     }
 }

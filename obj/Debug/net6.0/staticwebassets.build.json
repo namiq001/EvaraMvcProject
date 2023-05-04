@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EpwDnedGhwUmQTQyi+sIwhtnmEiENb4RCQWoJBkIjb0=",
+  "Hash": "GNrCm4StL/cUTe9vVlynX0fYXRXtFYfTxaXeHXiVXPs=",
   "Source": "EvaraMVC",
   "BasePath": "_content/EvaraMVC",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\admin\\css\\sb-admin-2.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\admin\\img\\Hasbulla.jpeg",
+      "SourceId": "EvaraMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\",
+      "BasePath": "_content/EvaraMVC",
+      "RelativePath": "admin/img/Hasbulla.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin\\img\\Hasbulla.jpeg"
     },
     {
       "Identity": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\admin\\img\\undraw_posting_photo.svg",
