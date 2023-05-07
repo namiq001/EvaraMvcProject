@@ -1,0 +1,30 @@
+﻿@model Slider
+
+<h1>Slider update</h1>
+
+
+<form class="col-6" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" >
+        <span class="text-danger" asp-validation-for="Title"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" >
+        <span class="text-danger" asp-validation-for="Description"></span>
+    </div>
+
+    <div>
+        <img style="width:400px" src="~/assets/imgs/slider/@Model.ImageName" />
+        <input asp-for="ImageName" type="hidden">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Image"></label>
+        <input asp-for="Image" class="form-control">
+        <span class="text-danger" asp-validation-for="Image"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Edit</button>
+</form>

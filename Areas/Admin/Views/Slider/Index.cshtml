@@ -11,7 +11,7 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Category</h1>
+        <h1 class="h3 mb-2 text-gray-800">Slider</h1>
         <p class="mb-4">
             DataTables is a third party plugin that is used to generate the demo table below.
             For more information about DataTables, please visit the <a target="_blank"
@@ -36,23 +36,21 @@
                         <th>№</th>
                         <th>Title</th>
                         <th>Descriptio</th>
-                        <th>ImageName</th>
+                        <th>Image</th>
                         <th>Setting</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (Slider item in Model)
                     {
-                        <tr>
+                        <tr>                                                                                                                                                                                                                                                                                              
                             <td>@(++count)</td>
                             <td>@item.Title</td>
                             <td>@item.Description</td>
-                            <td>@item.ImageName</td>
+                            <td><img style="width: 200px" src="~/assets/imgs/slider/@item.ImageName"></td>
                             <td>
-                                <a asp-action="Detalies" asp-route-Id="@item.Id"><button class="btn btn-info">Detail</button></a>
-                                            <form asp-action="Update" method="post" asp-route-Id="@item.Id">
-                                                <button type="submit" class="btn btn-primary">Update</button>
-                                            </form>
+                                <a asp-controller="Slider"  asp-action="Detalies" asp-route-Id="@item.Id"><button class="btn btn-info">Detail</button></a>
+                                <a asp-controller="Slider" asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-primary"> Update </a>
                                 <form method="post" asp-action="Delete" asp-route-Id="@item.Id">
                                 <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>

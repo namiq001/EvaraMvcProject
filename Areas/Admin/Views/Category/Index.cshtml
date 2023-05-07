@@ -34,6 +34,7 @@
                                 <th>№</th>
                                 <th>Name</th>
                                 <th>Setting</th>
+                                <th>Image</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,11 +43,10 @@
                                 <tr>
                                     <td>@(++count)</td>
                                     <td>@item.Name</td>
+                                    <td><img style="width: 200px" src="~/assets/imgs/shop/@item.ImageName"></td>
                                     <td>
                                         <a asp-controller="Category" asp-action="Detalies" asp-route-Id="@item.Id"><button class="btn btn-info">Detail</button></a>
-                                        <form asp-action="UpdateCategory" method="post" asp-route-Id="@item.Id">
-                                            <button type="submit" class="btn btn-primary" >Update</button>
-                                        </form>
+                                        <a asp-controller="Category" asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-primary"> Update </a>
                                         <form method="post" asp-action="Delete" asp-route-Id="@item.Id">
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
