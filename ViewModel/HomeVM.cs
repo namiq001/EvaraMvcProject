@@ -6,5 +6,7 @@ namespace EvaraMVC.ViewModel
     {
         public List<Slider> Sliders { get; set; }
         public List<Product> Products { get; set; }
+        public List <Popular> Populars { get; set; }
+        public  List<Category> Categories { get; set; }
     }
 }

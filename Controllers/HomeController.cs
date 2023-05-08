@@ -17,12 +17,15 @@ public class HomeController : Controller
     {
         List<Category> categories = await _dbContext.Categories.Include(c=>c.Products).ToListAsync();
         List<Slider> sliders = await _dbContext.Sliders.ToListAsync();
+        List<Popular> populars = await _dbContext.Populars.ToListAsync();
         List<Product> products = await _dbContext.Products.Include(c=>c.Category).ToListAsync();
 
         HomeVM homeVM = new HomeVM()
         {
             Products = products,
-            Sliders = sliders
+            Sliders = sliders,
+            Categories = categories,
+            Populars = populars
         };
         
         

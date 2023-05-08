@@ -25,6 +25,15 @@ public class CategoryController : Controller
         return View(categories);
     }
 
+    public async Task<IActionResult> Detalies(int id)
+    {
+        Category? category = await _evaraDbContext.Categories.FindAsync(id);
+        if (category == null)
+        {
+            return NotFound();
+        }
+        return View(category);
+    }
 
     public IActionResult Create()
     {

@@ -26,12 +26,12 @@ namespace EvaraMVC.Migrations
                     b.Property<int>("ColorsId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductsId")
+                    b.Property<int>("Productsid")
                         .HasColumnType("int");
 
-                    b.HasKey("ColorsId", "ProductsId");
+                    b.HasKey("ColorsId", "Productsid");
 
-                    b.HasIndex("ProductsId");
+                    b.HasIndex("Productsid");
 
                     b.ToTable("ColorProduct");
                 });
@@ -74,13 +74,34 @@ namespace EvaraMVC.Migrations
                     b.ToTable("Colors");
                 });
 
-            modelBuilder.Entity("EvaraMVC.Modals.Product", b =>
+            modelBuilder.Entity("EvaraMVC.Modals.Popular", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ImageName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Populars");
+                });
+
+            modelBuilder.Entity("EvaraMVC.Modals.Product", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -96,7 +117,7 @@ namespace EvaraMVC.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.HasIndex("CategoryId");
 
@@ -139,7 +160,7 @@ namespace EvaraMVC.Migrations
 
                     b.HasOne("EvaraMVC.Modals.Product", null)
                         .WithMany()
-                        .HasForeignKey("ProductsId")
+                        .HasForeignKey("Productsid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

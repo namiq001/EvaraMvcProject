@@ -87,6 +87,7 @@ public class SliderController : Controller
             return NotFound();
         }
         return View(slider);
+
     }
 
     [HttpPost]
@@ -103,13 +104,10 @@ public class SliderController : Controller
         { 
             return NotFound(); 
         }
-        
         if (!ModelState.IsValid)
         {
             return View(slider);
         }
-
-        
         if (newslider.Image is not  null)
         {
             string filepath = Path.Combine(_environment.WebRootPath, "assets", "imgs", "slider", slider.ImageName);
@@ -126,16 +124,9 @@ public class SliderController : Controller
                 await newslider.Image.CopyToAsync(fileStream);
             }
             newslider.ImageName = newFilename;
-
-
         }
-
         _evaraDbContext.Sliders.Update(newslider);
-
-
-
         await _evaraDbContext.SaveChangesAsync();
-
         return RedirectToAction(nameof(Index));
     }
 }
