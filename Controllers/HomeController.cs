@@ -31,5 +31,17 @@ public class HomeController : Controller
         
         return View(homeVM);
     }
+    public async Task<IActionResult> Product()
+    {
+        List<Category> categories = await _dbContext.Categories.Include(c => c.Products).ToListAsync();
+        List<Product> products = await _dbContext.Products.Include(c => c.Category).ToListAsync();
+
+        HomeVM homeVM = new HomeVM()
+        {
+            Products = products,
+            Categories = categories,
+        };
+        return View(homeVM);
+    }
 
 }

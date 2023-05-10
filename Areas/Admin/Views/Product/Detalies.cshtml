@@ -1,0 +1,9 @@
+﻿@model ProductDetaliesVM
+<h1>@Model.Name</h1>
+<h1>@Model.Description</h1>
+<h1>@Model.Price</h1>
+
+@foreach (Image item in Model.Images)
+{
+    <img src="~/assets/imgs/shop/@item.ImageName" alt="Product Image" />
+}

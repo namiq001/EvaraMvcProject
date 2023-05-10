@@ -74,6 +74,28 @@ namespace EvaraMVC.Migrations
                     b.ToTable("Colors");
                 });
 
+            modelBuilder.Entity("EvaraMVC.Modals.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ImageName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Images");
+                });
+
             modelBuilder.Entity("EvaraMVC.Modals.Popular", b =>
                 {
                     b.Property<int>("Id")
@@ -165,6 +187,17 @@ namespace EvaraMVC.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("EvaraMVC.Modals.Image", b =>
+                {
+                    b.HasOne("EvaraMVC.Modals.Product", "Product")
+                        .WithMany("images")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("EvaraMVC.Modals.Product", b =>
                 {
                     b.HasOne("EvaraMVC.Modals.Category", "Category")
@@ -179,6 +212,11 @@ namespace EvaraMVC.Migrations
             modelBuilder.Entity("EvaraMVC.Modals.Category", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("EvaraMVC.Modals.Product", b =>
+                {
+                    b.Navigation("images");
                 });
 #pragma warning restore 612, 618
         }
