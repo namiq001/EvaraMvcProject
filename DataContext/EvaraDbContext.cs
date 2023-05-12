@@ -15,4 +15,5 @@ public class EvaraDbContext : DbContext
     public DbSet<Category> Categories { get; set; }
     public DbSet<Popular> Populars { get; set; }
     public DbSet<Image> Images { get; set; }
+    public DbSet<Setting> Settings { get; set; }
 }

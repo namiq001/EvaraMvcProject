@@ -18,7 +18,7 @@ public class HomeController : Controller
         List<Category> categories = await _dbContext.Categories.Include(c=>c.Products).ToListAsync();
         List<Slider> sliders = await _dbContext.Sliders.ToListAsync();
         List<Popular> populars = await _dbContext.Populars.ToListAsync();
-        List<Product> products = await _dbContext.Products.Include(c=>c.Category).ToListAsync();
+        List<Product> products = await _dbContext.Products.Include(c=>c.Category).Include(P=>P.images).ToListAsync();
 
         HomeVM homeVM = new HomeVM()
         {
@@ -31,17 +31,13 @@ public class HomeController : Controller
         
         return View(homeVM);
     }
-    public async Task<IActionResult> Product()
+    public async Task<IActionResult> Product(int id)
     {
-        List<Category> categories = await _dbContext.Categories.Include(c => c.Products).ToListAsync();
-        List<Product> products = await _dbContext.Products.Include(c => c.Category).ToListAsync();
+        
+        Product products = await _dbContext.Products.Include(c => c.Category).Include(P => P.images).FirstOrDefaultAsync(p => p.id == id);
 
-        HomeVM homeVM = new HomeVM()
-        {
-            Products = products,
-            Categories = categories,
-        };
-        return View(homeVM);
+       
+        return View(products);
     }
 
 }

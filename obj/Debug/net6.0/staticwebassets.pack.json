@@ -7533,6 +7533,10 @@
       "PackagePath": "staticwebassets\\assets\\imgs\\banner\\30159367-be52-47ee-80be-e30c7ff7cc37brand-2.png"
     },
     {
+      "Id": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\assets\\imgs\\banner\\Hasbulla.jpeg",
+      "PackagePath": "staticwebassets\\assets\\imgs\\banner\\Hasbulla.jpeg"
+    },
+    {
       "Id": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\assets\\imgs\\banner\\banner-1.png",
       "PackagePath": "staticwebassets\\assets\\imgs\\banner\\banner-1.png"
     },
@@ -7749,6 +7753,14 @@
       "PackagePath": "staticwebassets\\assets\\imgs\\shop\\095692ac-503f-480b-96af-ec3745be271cproduct-9-1.jpg"
     },
     {
+      "Id": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\assets\\imgs\\shop\\0d593e01-8c0b-4069-8b8f-e41551321400product-15-2.jpg",
+      "PackagePath": "staticwebassets\\assets\\imgs\\shop\\0d593e01-8c0b-4069-8b8f-e41551321400product-15-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\assets\\imgs\\shop\\1513177a-6ab5-45d9-9fca-6e248b01a790category-thumb-8.jpg",
+      "PackagePath": "staticwebassets\\assets\\imgs\\shop\\1513177a-6ab5-45d9-9fca-6e248b01a790category-thumb-8.jpg"
+    },
+    {
       "Id": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\assets\\imgs\\shop\\18a77e87-62d9-4d48-b5fd-ceac655a3274thumbnail-6.jpg",
       "PackagePath": "staticwebassets\\assets\\imgs\\shop\\18a77e87-62d9-4d48-b5fd-ceac655a3274thumbnail-6.jpg"
     },
@@ -7793,6 +7805,10 @@
       "PackagePath": "staticwebassets\\assets\\imgs\\shop\\5c6507cf-ada3-4295-bf60-febde2f1c341category-thumb-8.jpg"
     },
     {
+      "Id": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\assets\\imgs\\shop\\60b753e3-96c0-42ec-80ee-6241fcc7af50thumbnail-6.jpg",
+      "PackagePath": "staticwebassets\\assets\\imgs\\shop\\60b753e3-96c0-42ec-80ee-6241fcc7af50thumbnail-6.jpg"
+    },
+    {
       "Id": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\assets\\imgs\\shop\\6705de44-0ab3-44be-bb34-6f673bf06829product-15-1.jpg",
       "PackagePath": "staticwebassets\\assets\\imgs\\shop\\6705de44-0ab3-44be-bb34-6f673bf06829product-15-1.jpg"
     },
@@ -7813,12 +7829,24 @@
       "PackagePath": "staticwebassets\\assets\\imgs\\shop\\83a7b9ad-e8fa-41ae-a720-50b58cdc1481category-thumb-7.jpg"
     },
     {
+      "Id": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\assets\\imgs\\shop\\9f7daf65-1f5f-4f6a-95bb-8bf823d3e36bproduct-15-1.jpg",
+      "PackagePath": "staticwebassets\\assets\\imgs\\shop\\9f7daf65-1f5f-4f6a-95bb-8bf823d3e36bproduct-15-1.jpg"
+    },
+    {
       "Id": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\assets\\imgs\\shop\\a608e5f0-28e9-4f58-b599-3b710c69c3f6category-thumb-6.jpg",
       "PackagePath": "staticwebassets\\assets\\imgs\\shop\\a608e5f0-28e9-4f58-b599-3b710c69c3f6category-thumb-6.jpg"
     },
     {
       "Id": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\assets\\imgs\\shop\\b113aabf-6a53-4b8a-8c4b-d5431331ff87product-9-2.jpg",
       "PackagePath": "staticwebassets\\assets\\imgs\\shop\\b113aabf-6a53-4b8a-8c4b-d5431331ff87product-9-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\assets\\imgs\\shop\\b8122c21-40a9-497d-b2a0-ce8e5d82ce89category-thumb-3.jpg",
+      "PackagePath": "staticwebassets\\assets\\imgs\\shop\\b8122c21-40a9-497d-b2a0-ce8e5d82ce89category-thumb-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\assets\\imgs\\shop\\c5b537c0-46ab-4c95-88e6-a35cfb399578category-thumb-4.jpg",
+      "PackagePath": "staticwebassets\\assets\\imgs\\shop\\c5b537c0-46ab-4c95-88e6-a35cfb399578category-thumb-4.jpg"
     },
     {
       "Id": "C:\\Users\\user\\Desktop\\ASPNETPROB\\Evara\\EvaraMVC\\wwwroot\\assets\\imgs\\shop\\c94015ff-50e1-4d82-8d3b-8fd8bcb3890fcategory-thumb-8.jpg",

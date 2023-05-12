@@ -51,7 +51,7 @@ public class CategoryController : Controller
         {
             ModelState.AddModelError("Image", "Image is requared");
             return View(category);
-        }        
+        }
 
         string guid = Guid.NewGuid().ToString();
         string newFilename = guid + category.Image.FileName;
@@ -152,23 +152,23 @@ public class CategoryController : Controller
 
 
 
-    //public async Task<IActionResult>  Index()
+    //public async Task<IActionResult> Index()
     //{
     //    List<Category> categories = await _evaraDbContext.Categories.ToListAsync();
     //    return View(categories);
     //}
 
     //public async Task<IActionResult> Detalies(int id)
-    //{ 
+    //{
     //    Category? category = await _evaraDbContext.Categories.FindAsync(id);
     //    if (category == null)
     //    {
-    //        return NotFound();  
+    //        return NotFound();
     //    }
     //    return View(category);
     //}
     //public IActionResult Create()
-    //{ 
+    //{
     //    return View();
     //}
     //[HttpPost]

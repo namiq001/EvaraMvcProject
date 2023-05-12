@@ -1,4 +1,4 @@
-﻿@model HomeVM
+﻿@model Product
 
 <main class="main">
     <div class="page-header breadcrumb-wrap">
@@ -21,46 +21,48 @@
                                     <span class="zoom-icon"><i class="fi-rs-search"></i></span>
                                     <!-- MAIN SLIDES -->
                                     <div class="product-image-slider">
+                                         @foreach (var item in Model.images)
+                                        {
                                         <figure class="border-radius-10">
-                                            <img src="~/assets/imgs/shop/product-16-2.jpg" alt="product image">
+                                                <img src="~/assets/imgs/shop/@item.ImageName" alt="product image">
                                         </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="~/assets/imgs/shop/product-16-1.jpg" alt="product image">
-                                        </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="~/assets/imgs/shop/product-16-3.jpg" alt="product image">
-                                        </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="~/assets/imgs/shop/product-16-4.jpg" alt="product image">
-                                        </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="~/assets/imgs/shop/product-16-5.jpg" alt="product image">
-                                        </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="~/assets/imgs/shop/product-16-6.jpg" alt="product image">
-                                        </figure>
-                                        <figure class="border-radius-10">
-                                            <img src="~/assets/imgs/shop/product-16-7.jpg" alt="product image">
-                                        </figure>
+                                        }
+
                                     </div>
                                     <!-- THUMBNAILS -->
+                                    
+
+
+
+
+
                                     <div class="slider-nav-thumbnails pl-15 pr-15">
-                                        <div><img src="~/assets/imgs/shop/thumbnail-3.jpg" alt="product image"></div>
-                                        <div><img src="~/assets/imgs/shop/thumbnail-4.jpg" alt="product image"></div>
-                                        <div><img src="~/assets/imgs/shop/thumbnail-5.jpg" alt="product image"></div>
-                                        <div><img src="~/assets/imgs/shop/thumbnail-6.jpg" alt="product image"></div>
-                                        <div><img src="~/assets/imgs/shop/thumbnail-7.jpg" alt="product image"></div>
-                                        <div><img src="~/assets/imgs/shop/thumbnail-8.jpg" alt="product image"></div>
-                                        <div><img src="~/assets/imgs/shop/thumbnail-9.jpg" alt="product image"></div>
+                                        @foreach (var item in Model.images)
+                                        {
+                                        <div><img src="~/assets/imgs/shop/@item.ImageName" alt="product image"></div>
+                                            
+                                        }
+                                       
                                     </div>
+
+
+
+
+
+
                                 </div>
                                 <!-- End Gallery -->
                             </div>
-                            @foreach (var item in Model.Products)
-                            {
+
+
+
+
+
                                 <div class="col-md-6 col-sm-12 col-xs-12">
+
+                            
                                     <div class="detail-info">
-                                        <h2 class="title-detail">@item.Name</h2>
+                                        <h2 class="title-detail">@Model.Name</h2>
                                         <div class="product-detail-rating">
                                             <div class="pro-details-brand">
                                                 <span> Brands: <a href="shop-grid-right.html">Bootstrap</a></span>
@@ -75,14 +77,14 @@
                                         </div>
                                         <div class="clearfix product-price-cover">
                                             <div class="product-price primary-color float-left">
-                                                <ins><span class="text-brand">$120.00</span></ins>
+                                                <ins><span class="text-brand">@Model.Price</span></ins>
                                                 <ins><span class="old-price font-md ml-15">$200.00</span></ins>
                                                 <span class="save-price  font-md color3 ml-15">25% Off</span>
                                             </div>
                                         </div>
                                         <div class="bt-1 border-color-1 mt-15 mb-15"></div>
                                         <div class="short-desc mb-30">
-                                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus dolore impedit fuga eum eligendi? Officia doloremque facere quia. Voluptatum, accusantium!</p>
+                                            <p>@Model.Description</p>
                                         </div>
                                         <div class="product_sort_info font-xs mb-30">
                                             <ul>
@@ -133,10 +135,16 @@
                                         </ul>
                                     </div>
                                     <!-- Detail Info -->
+                            
                                 </div>
-                            }
+                                </div>
                            
-                        </div>
+
+
+
+
+
+
                         <div class="row">
                             <div class="col-lg-10 m-auto entry-main-content">
                                 <h2 class="section-title style-1 mb-30">Description</h2>

@@ -1,0 +1,44 @@
+﻿@model ProductUpdateVM
+
+<h2>Edit Product</h2>
+
+<form class="col-6" method="post" enctype="multipart/form-data">
+    <div>
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" id="exampleInputPassword1">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" id="exampleInputPassword1">
+        <span class="text-danger" asp-validation-for="Description"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" id="exampleInputPassword1">
+        <span class="text-danger" asp-validation-for="Price"></span>
+    </div>
+    <select class="custom-select" asp-for="CatagoryId">
+
+        @foreach (Category item in (List<Category>)ViewData["Categories"])
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+        <span class="text-danger" asp-validation-for="CatagoryId"></span>
+    </select>
+    <div class="form-group">
+        <label asp-for="Images"></label>
+        <input asp-for="Images" class="form-control" id="exampleInputPassword1">
+        <span class="text-danger" asp-validation-for="Images"></span>
+    </div>
+
+    
+    @foreach (Image item in Model.OldImages)
+    {
+        <img style="width: 200px" src="~/assets/imgs/shop/@item.ImageName" alt="Product Image" />
+    }
+    <button type="submit" class="btn btn-primary">Create</button>
+</form> 
