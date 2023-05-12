@@ -1,0 +1,22 @@
+﻿@model SettingEditVM
+
+<h1>Setting update</h1>
+
+
+<form class="col-6" method="post">
+    <div class="form-group">
+        <label asp-for="Key"></label>
+        <input asp-for="Key" class="form-control">
+        <span class="text-danger" asp-validation-for="Key"></span>
+    </div>
+
+   
+
+    <div class="form-group">
+        <label asp-for="Value"></label>
+        <input asp-for="Value" class="form-control">
+        <span class="text-danger" asp-validation-for="Value"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Edit</button>
+</form>
