@@ -7,6 +7,7 @@ builder.Services.AddDbContext<EvaraDbContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
+builder.Services.AddSession(cfg => cfg.IdleTimeout = TimeSpan.FromMinutes(5));
 var app = builder.Build();
 app.MapControllerRoute (
             name: "areas",
@@ -14,4 +15,5 @@ app.MapControllerRoute (
           );
 app.MapDefaultControllerRoute();
 app.UseStaticFiles();
+app.UseSession();
 app.Run();

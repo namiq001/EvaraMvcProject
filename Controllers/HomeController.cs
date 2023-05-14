@@ -15,6 +15,11 @@ public class HomeController : Controller
     }
     public async Task<IActionResult> Index()
     {
+        HttpContext.Response.Cookies.Append("test", "BB203", new CookieOptions()
+        {
+            MaxAge = TimeSpan.FromMinutes(10)
+        }); 
+        //HttpContext.Session.Set("test", new byte[] {10,20});
         List<Category> categories = await _dbContext.Categories.Include(c=>c.Products).ToListAsync();
         List<Slider> sliders = await _dbContext.Sliders.ToListAsync();
         List<Popular> populars = await _dbContext.Populars.ToListAsync();
@@ -28,16 +33,19 @@ public class HomeController : Controller
             Populars = populars
         };
         
-        
         return View(homeVM);
     }
     public async Task<IActionResult> Product(int id)
     {
-        
-        Product products = await _dbContext.Products.Include(c => c.Category).Include(P => P.images).FirstOrDefaultAsync(p => p.id == id);
-
-       
+        Product? products = await _dbContext.Products.Include(c => c.Category).Include(P => P.images).FirstOrDefaultAsync(p => p.id == id);
         return View(products);
     }
-
+    public IActionResult GetSession()
+    {
+        return Json(HttpContext.Session.Get("test"));
+    }
+    public IActionResult GetCookies()
+    {
+        return Json(HttpContext.Request.Cookies["test"]);
+    }
 }
