@@ -1,4 +1,4 @@
-﻿@model List<Product>
+﻿@model List<CartVM>
 
 <main class="main">
     <div class="page-header breadcrumb-wrap">
@@ -26,49 +26,55 @@
                                     <th scope="col">Remove</th>
                                 </tr>
                             </thead>
-                            <tbody>
-
-                                @foreach (var item in Model)
-                                {
+                            @if (Model is null)
+                            {
+                                <tbody>
                                     
+                                </tbody>
+                            }else
+                            {
+                                <tbody>
 
-                                <tr>
-                                    <td class="image product-thumbnail"><img  src="~/assets/imgs/shop/@item.images.FirstOrDefault().ImageName" alt="#"></td>
-                                    <td class="product-des product-name">
-                                        <h5 class="product-name"><a href="shop-product-right.html">@item.Name</a></h5>
-                                        <p class="font-xs">
-                                            Catagor Name: @item.Category.Name
-                                        </p>
-                                    </td>
-                                    <td class="price" data-title="Price"><span>@item.Price </span></td>
-                                    <td class="text-center" data-title="Stock">
-                                        <div class="detail-qty border radius  m-auto">
-                                            <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
-                                            <span class="qty-val">1</span>
-                                            <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
-                                        </div>
-                                    </td>
-                                    <td class="text-right" data-title="Cart">
-                                        <span>@item.Price </span>
-                                    </td>
-                                    <td class="action" data-title="Remove"><a href="#" class="text-muted"><i class="fi-rs-trash"></i></a></td>
-                                </tr>
+                                    @foreach (var item in Model)
+                                    {
 
-                                }
+                                        <tr>
+                                            <td class="image product-thumbnail"><img src="~/assets/imgs/shop/@item.ImageName" alt="#"></td>
+                                            <td class="product-des product-name">
+                                                <h5 class="product-name"><a href="shop-product-right.html">@item.Name</a></h5>
+                                                <p class="font-xs">
+                                                    Catagor Name: @item.CatagoryName
+                                                </p>
+                                            </td>
+                                            <td class="price" data-title="Price"><span>@item.Price </span></td>
+                                            <td class="text-center" data-title="Stock">
+                                                <div class="detail-qty border radius  m-auto">
+                                                    <span class="qty-val">@item.Count</span>
+                                                </div>
+                                            </td>
+                                            <td class="text-right" data-title="Cart">
+                                                <span>@(item.Count * item.Price)</span>
+                                            </td>
+                                            <td class="action" data-title="Remove"><a href="#" class="text-muted"><i class="fi-rs-trash"></i></a></td>
+                                        </tr>
+
+                                    }
 
 
-                              
-                                <tr>
-                                    <td colspan="6" class="text-end">
-                                        <a href="#" class="text-muted"> <i class="fi-rs-cross-small"></i> Clear Cart</a>
-                                    </td>
-                                </tr>
-                            </tbody>
+
+                                    <tr>
+                                        <td colspan="6" class="text-end">
+                                            <a href="#" class="text-muted"> <i class="fi-rs-cross-small"></i> Clear Cart</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            }
                         </table>
                     </div>
                     <div class="cart-action text-end">
                         <a class="btn  mr-10 mb-sm-15"><i class="fi-rs-shuffle mr-10"></i>Update Cart</a>
-                        <a class="btn "><i class="fi-rs-shopping-bag mr-10"></i>Continue Shopping</a>
+                        <a class="btn"><i class="fi-rs-shopping-bag mr-10"></i>Continue Shopping</a>
                     </div>
                     <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>
                     <div class="row mb-50">

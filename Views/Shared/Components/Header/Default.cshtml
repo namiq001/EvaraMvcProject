@@ -174,7 +174,7 @@
         <div class="container">
             <div class="header-wrap">
                 <div class="logo logo-width-1">
-                    <a href="index.html"><img src="~/assets/imgs/theme/@Html.Raw(Model["Logo"].Value)" alt="logo"></a>
+                    <a asp-controller="home" asp-action="index"><img src="~/assets/imgs/theme/@Html.Raw(Model["Logo"].Value)" alt="logo"></a>
                 </div>
                 <div class="header-right">
                     <div class="search-style-2">
@@ -206,44 +206,60 @@
                             <div class="header-action-icon-2">
                                 <a class="mini-cart-icon" asp-controller="Product" asp-action="GetCarts">
                                     <img alt="Evara" src="~/assets/imgs/theme/icons/icon-cart.svg">
-                                    <span class="pro-count blue">2</span>
+                                    @if (ViewBag.CartVM is null)
+                                    {
+                                        <li>
+                                            <span class="pro-count blue">0</span>
+
+                                        </li>
+                                    }
+                                    else
+                                        {
+
+
+                                            @foreach (CartVM item in ViewBag.CartVM)
+                                        {
+                                            int say = 0;
+                                            say += item.Count;
+                                            <span class="pro-count blue">@say</span>
+
+                                        }
+                                    }
+
                                 </a>
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2">
 
-
-
-
-
-
-
                                     <ul>
-                                        <li>
-                                            <div class="shopping-cart-img">
-                                                <a href="shop-product-right.html"><img alt="Evara" src="~/assets/imgs/shop/thumbnail-3.jpg"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="shop-product-right.html">Daisy Casual Bag</a></h4>
-                                                <h4><span>1 × </span>$800.00</h4>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="shopping-cart-img">
-                                                <a href="shop-product-right.html"><img alt="Evara" src="~/assets/imgs/shop/thumbnail-2.jpg"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="shop-product-right.html">Corduroy Shirts</a></h4>
-                                                <h4><span>1 × </span>$3200.00</h4>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                            </div>
-                                        </li>
+                                        @if (ViewBag.CartVM is null)
+                                        {
+                                            <li>
+
+                                            </li>
+                                        }
+                                        else
+                                        {
+
+
+                                            @foreach (CartVM item in ViewBag.CartVM)
+                                            {
+                                                <li>
+                                                    <div class="shopping-cart-img">
+                                                        <a href="shop-product-right.html"><img alt="Evara" src="~/assets/imgs/shop/@item.ImageName"></a>
+                                                    </div>
+                                                    <div class="shopping-cart-title">
+                                                        <h4><a href="shop-product-right.html">@item.Name</a></h4>
+                                                        <h4><span>@item.Count *  </span>@(item.Price)$</h4>
+                                                    </div>
+                                                    <div class="shopping-cart-delete">
+                                                        <a href="#"><i class="fi-rs-cross-small"></i></a>
+                                                    </div>
+                                                </li>
+
+                                            }
+                                        }
                                     </ul>
 
-                                    
+
 
 
 

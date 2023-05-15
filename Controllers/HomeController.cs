@@ -19,7 +19,6 @@ public class HomeController : Controller
         {
             MaxAge = TimeSpan.FromMinutes(10)
         }); 
-        //HttpContext.Session.Set("test", new byte[] {10,20});
         List<Category> categories = await _dbContext.Categories.Include(c=>c.Products).ToListAsync();
         List<Slider> sliders = await _dbContext.Sliders.ToListAsync();
         List<Popular> populars = await _dbContext.Populars.ToListAsync();

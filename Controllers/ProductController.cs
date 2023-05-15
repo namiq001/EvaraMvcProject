@@ -18,7 +18,7 @@ public class ProductController : Controller
 
     public async Task<IActionResult> AddCart(int id)
     {
-        Product? product = await _evaraDbContext.Products.FindAsync(id);
+        Product? product = await _evaraDbContext.Products.Include(x => x.Category).Include(i => i.images).FirstOrDefaultAsync(x => x.id == id);
         if (product == null)
         {
             return NotFound();
@@ -40,7 +40,11 @@ public class ProductController : Controller
             cartsCookies.Add(new CartVM()
             {
                 Id = id,
-                Count = 1
+                Count = 1,
+                Name = product.Name,
+                Price = product.Price,
+                CatagoryName = product.Category.Name,
+                ImageName = product.images.FirstOrDefault().ImageName,
             });
         }
         else
@@ -51,19 +55,31 @@ public class ProductController : Controller
         HttpContext.Response.Cookies.Append("basket", JsonSerializer.Serialize(cartsCookies), new CookieOptions()
         {
             MaxAge = TimeSpan.FromDays(25)
-        }); 
+        });
         return RedirectToAction("Index", "Home");
     }
     public async Task<IActionResult> GetCarts()
     {
-        string value = HttpContext.Request.Cookies["basket"];
-        List<CartVM> cartVM = JsonSerializer.Deserialize<List<CartVM>>(value);
         List<Product> productList = new List<Product>();
-        foreach (var item in cartVM)
+        List<CartVM> cartVM = new List<CartVM>();
+        string value = HttpContext.Request.Cookies["basket"];
+        if (value is null)
         {
-            Product product = await _evaraDbContext.Products.Include(i => i.images).Include(c => c.Category).FirstOrDefaultAsync();
-            productList.Add(product);
+            cartVM = null;
         }
-        return View(productList);
+        else
+        {
+
+            cartVM = JsonSerializer.Deserialize<List<CartVM>>(value);
+            foreach (var item in cartVM)
+            {
+                Product? product = await _evaraDbContext.Products.Include(i => i.images).Include(c => c.Category).FirstOrDefaultAsync();
+                productList.Add(product);
+            }
+        }
+            return View(cartVM);
+
+
+
     }
 }

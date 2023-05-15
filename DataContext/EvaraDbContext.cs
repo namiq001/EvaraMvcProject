@@ -1,4 +1,5 @@
 ﻿using EvaraMVC.Modals;
+using EvaraMVC.ViewModel.ProductVM;
 using Microsoft.EntityFrameworkCore;
 
 namespace EvaraMVC.DataContext;
@@ -16,4 +17,5 @@ public class EvaraDbContext : DbContext
     public DbSet<Popular> Populars { get; set; }
     public DbSet<Image> Images { get; set; }
     public DbSet<Setting> Settings { get; set; }
+    public DbSet<CartVM> Carts { get; set; }
 }
