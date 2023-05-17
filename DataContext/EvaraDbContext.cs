@@ -1,10 +1,11 @@
 ﻿using EvaraMVC.Modals;
 using EvaraMVC.ViewModel.ProductVM;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace EvaraMVC.DataContext;
 
-public class EvaraDbContext : DbContext
+public class EvaraDbContext : IdentityDbContext<AppUser>
 {
     public EvaraDbContext(DbContextOptions<EvaraDbContext> options) : base (options)
     {

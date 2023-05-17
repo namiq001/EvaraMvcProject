@@ -1,11 +1,13 @@
 ﻿using EvaraMVC.DataContext;
 using EvaraMVC.Modals;
 using EvaraMVC.ViewModel.SettingVM;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace EvaraMVC.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize]
 public class SettingController : Controller
 {
     readonly EvaraDbContext _context;

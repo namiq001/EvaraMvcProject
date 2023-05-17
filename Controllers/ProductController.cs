@@ -18,7 +18,11 @@ public class ProductController : Controller
 
     public async Task<IActionResult> AddCart(int id)
     {
-        Product? product = await _evaraDbContext.Products.Include(x => x.Category).Include(i => i.images).FirstOrDefaultAsync(x => x.id == id);
+        Product? product = await _evaraDbContext
+            .Products
+            .Include(x => x.Category)
+            .Include(i => i.images)
+            .FirstOrDefaultAsync(x => x.id == id);
         if (product == null)
         {
             return NotFound();
@@ -27,7 +31,10 @@ public class ProductController : Controller
         List<CartVM> cartsCookies = new List<CartVM>();
         if (value == null)
         {
-            HttpContext.Response.Cookies.Append("basket", JsonSerializer.Serialize(cartsCookies));
+            HttpContext
+                .Response
+                .Cookies
+                .Append("basket", JsonSerializer.Serialize(cartsCookies));
         }
         else
         {
@@ -78,8 +85,25 @@ public class ProductController : Controller
             }
         }
             return View(cartVM);
-
-
-
     }
+    public async Task<IActionResult> RemoveCart(int id)
+    { 
+        string? value = HttpContext.Request.Cookies["basket"];
+        if (value == null) return NotFound();
+        else
+        {
+            List<CartVM>? cartVM = JsonSerializer.Deserialize<List<CartVM>>(value);
+            CartVM? cart = cartVM.FirstOrDefault(c => c.Id == id);
+            if (cart is not null)
+            {
+                cartVM.Remove(cart);
+            }
+            HttpContext.Response.Cookies.Append("basket", JsonSerializer.Serialize(cartVM), new CookieOptions()
+            {
+                MaxAge = TimeSpan.FromMinutes(10)
+            });
+        }
+        return RedirectToAction("GetCarts", "Product");
+    }
+
 }

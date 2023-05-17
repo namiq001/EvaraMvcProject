@@ -1,10 +1,12 @@
 ﻿using EvaraMVC.DataContext;
 using EvaraMVC.Modals;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace EvaraMVC.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize]
 public class PopularController : Controller
 {
     readonly private EvaraDbContext _evaraDbContext;

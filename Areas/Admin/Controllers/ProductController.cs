@@ -1,12 +1,14 @@
 ﻿using EvaraMVC.DataContext;
 using EvaraMVC.Modals;
 using EvaraMVC.ViewModel.ProductVM;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol.Plugins;
 
 namespace EvaraMVC.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize]
 public class ProductController : Controller
 {
     readonly EvaraDbContext _evaraDbContext;

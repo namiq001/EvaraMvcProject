@@ -163,7 +163,22 @@
                                     <li><a href="#"><img src="~/assets/imgs/theme/flag-ru.png" alt="">Pусский</a></li>
                                 </ul>
                             </li>
-                            <li><i class="fi-rs-user"></i><a href="page-login-register.html">Log In / Sign Up</a></li>
+                            @if (Context.User.Identity.IsAuthenticated)
+                            { 
+                                <li>
+                                    @Context.User.Identity.Name
+                                </li>
+                                <li>
+                                    <form method="post"  asp-controller="Account" asp-action="LogOut">
+                                        <button type="submit" >Log Out</button>
+                                    </form>
+                                </li>
+                            }
+                            else
+                            {
+                                <li><i class="fi-rs-user"></i><a asp-controller="Account" asp-action="Register">Sign Up</a></li>
+                                <li><i class="fi-rs-user"></i><a asp-controller="Account" asp-action="Login">Log In</a></li>
+                            }
                         </ul>
                     </div>
                 </div>
@@ -216,7 +231,6 @@
                                     else
                                         {
 
-
                                             @foreach (CartVM item in ViewBag.CartVM)
                                         {
                                             int say = 0;
@@ -258,11 +272,6 @@
                                             }
                                         }
                                     </ul>
-
-
-
-
-
 
                                     <div class="shopping-cart-footer">
                                         <div class="shopping-cart-total">

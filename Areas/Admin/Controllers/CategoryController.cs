@@ -1,5 +1,6 @@
 ﻿using EvaraMVC.DataContext;
 using EvaraMVC.Modals;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -7,6 +8,7 @@ using System;
 namespace EvaraMVC.Areas.Admin.Controllers;
 
 [Area("Admin")]
+[Authorize]
 public class CategoryController : Controller
 {
     readonly private EvaraDbContext _evaraDbContext;

@@ -1,12 +1,14 @@
 ﻿using EvaraMVC.DataContext;
 using EvaraMVC.Modals;
 using EvaraMVC.ViewModel.SliderVM;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace EvaraMVC.Areas.Admin.Controllers;
 [Area("Admin")]
+[Authorize]
 public class SliderController : Controller
 {
     readonly private EvaraDbContext _evaraDbContext;
